@@ -11,7 +11,6 @@ departments = [
     "Pediatrics",
     "Traditional Chinese Medicine",
     "Otorhinolaryngology",
-    "Dentistry",
     "Ophthalmology",
     "Dermatology",
     "Anesthesiology",
@@ -30,7 +29,6 @@ descriptions = [
     "Focuses on medical care for infants, children, and adolescents, including their growth, development, and childhood diseases.",
     "Incorporates ancient Chinese healing practices including acupuncture, herbal medicine, and traditional therapies based on holistic approach.",
     "Specializes in diagnosis and treatment of ear, nose, throat, and head and neck disorders (also known as ENT).",
-    "Provides care for oral health, including prevention, diagnosis, and treatment of conditions affecting teeth, gums, and related structures.",
     "Focuses on diagnosis and treatment of eye disorders, vision problems, and diseases affecting the visual system.",
     "Specializes in conditions affecting the skin, hair, nails, and related mucous membranes.",
     "Focuses on pain relief and management during surgery, medical procedures, and chronic conditions, including administration of anesthesia.",
@@ -42,8 +40,35 @@ descriptions = [
     "Focuses on disorders of the colon, rectum, and anus, including hemorrhoids, fistulas, and colorectal conditions."
 ]
 
-# Section 1: which department you should go 
-best_department_choice = nerif_match_string(selections=departments, text="I feel my mouth is disgusting")
+# Section 0:
+print("Hi, I am you medical assistant today, can you describe your symptom:")
+patient_input = "I feel my mouth is disgusting"
+
+improved_patient_input = model.chat(f"""Act as a professional content writer and editor. (replyWithRewrittenText)
+
+Strictly follow these rules:
+- Professional tone of voice
+- Formal language
+- Accurate facts
+- Correct spelling, grammar, and punctuation
+- Concise phrasing
+- meaning  unchanged
+- Length retained
+- (maintainURLs)
+(maintainOriginalLanguage)
+
+Text: {patient_input}
+
+Rewritten text:""")
+
+print(f"I think I can describe your symptom more accurately: {improved_patient_input}, is that correct?")
+
+more_specific_input = "I ate out dated food last day"
+
+# patient_input += more_specific_input
+
+# Section 1: which department you should go
+best_department_choice = nerif_match_string(selections=departments, text=patient_input)
 
 print(best_department_choice)
 
