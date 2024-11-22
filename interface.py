@@ -1,4 +1,6 @@
 from openai import OpenAI
+# from nerif.core import nerif
+# from nerif.model import SimpleChatModel
 import streamlit as st
 
 st.title("ChatGPT-like clone")
