@@ -1,8 +1,8 @@
-from nerif.core import nerif
 from nerif.model import SimpleChatModel
 from nerif.core import nerif_match_string
 
-model = SimpleChatModel()
+# model = SimpleChatModel(model="openrouter/Meta-Llama-3.1-70B-Instruct")
+model = SimpleChatModel(model="openrouter/nvidia/llama-3.1-nemotron-70b-instruct")
 
 departments = [
     "Emergency Department",
